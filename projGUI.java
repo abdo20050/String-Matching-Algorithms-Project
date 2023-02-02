@@ -235,13 +235,9 @@ public class projGUI extends JFrame {
 			if(chkBox.isSelected()) {
 				for(int i = 100; i<=10000; i+= 100) {
 					output = output + "@ " + Integer.toString(i) + " number of elements\n";
-					long avg=0;
-					for(int j = 0; j< 5; j++) {
-						avg =+ testObj.performTest(inAlgo,i,fName,stm);
-					}
-					avg = avg/5;
-					float avgD= (float)avg/1000000.0f;
-					output= output + "average execution time using "+ comboBox.getSelectedItem().toString() + " algorithm is "+Float.toString(avgD)+" ms\n\n";
+					long avg = testObj.performTest(inAlgo,i,fName,stm,5);
+					float avgD= (float)avg/1000.0f;
+					output= output + "average execution time using "+ comboBox.getSelectedItem().toString() + " algorithm is "+Float.toString(avgD)+" us\n\n";
 					csvFile.addData(Integer.toString(i),Float.toString(avgD));
 				}
 			}
@@ -250,12 +246,9 @@ public class projGUI extends JFrame {
 				int i = (int) getSpinner().getValue();
 				output = output + "@ " + Integer.toString(i) + " number of elements\n";
 				long avg=0;
-				for(int j = 0; j< 5; j++) {
-					avg =+ testObj.performTest(inAlgo,i,fName,stm);
-				}
-				avg = avg/5;
-				float avgD= (float)avg/1000000.0f;
-				output= output + "average execution time using "+ comboBox.getSelectedItem().toString() + " algorithm is "+Float.toString(avgD)+" ms\n\n";
+				avg = testObj.performTest(inAlgo,i,fName,stm,5);
+				float avgD= (float)avg/1000.0f;
+				output= output + "average execution time using "+ comboBox.getSelectedItem().toString() + " algorithm is "+Float.toString(avgD)+" us\n\n";
 				csvFile.addData(Integer.toString(i),Float.toString(avgD));
 			}
 			getOutputTxtpn().setText(output);

@@ -5,9 +5,10 @@ import java.util.Map;
 
 public class StringMatch {
 	String fName;
-
+	String data;
 	public StringMatch(String fName) {
 		this.fName = fName;
+		this.data = readFile();
 	}
 
 	private String readFile() {
@@ -17,19 +18,19 @@ public class StringMatch {
 			Scanner myReader = new Scanner(myObj);
 			while (myReader.hasNextLine()) {
 				dataOutput = dataOutput + myReader.nextLine();
-				// System.out.println(data);
+				// //System.out.println(data);
 			}
 			myReader.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("An error occurred.");
+			//System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
 		return dataOutput;
 	}
 
 	public int bruteForce(String txt) {
-		System.out.println("Brute Force: ");
-		String data = readFile();
+		//System.out.println("Brute Force: ");
+		//String data = readFile();
 		txt = txt.toLowerCase();
 		int counter = 0;
 		int l1 = data.length();
@@ -39,24 +40,24 @@ public class StringMatch {
 		for (i = 0, j = l2 - 1; j < l1;) {
 
 			if (txt.equals(data.substring(i, j + 1))) {
-				System.out.println("Pattern found at index " + i);
+				//System.out.println("Pattern found at index " + i);
 				counter++;
 			}
 			i++;
 			j++;
 		}
 		if (counter == 0) {
-			System.out.println("No match found!");
+			//System.out.println("No match found!");
 		} else {
-			System.out.println(counter + " matches found!");
+			//System.out.println(counter + " matches found!");
 		}
 		return counter;
 	}
 
 	public int KMPSearch(String pattern) {
-		String text = readFile();
+		String text = data;
 		int counter = 0;
-		System.out.println("KPM Algorithm: ");
+		//System.out.println("KPM Algorithm: ");
 		int M = pattern.length();
 		int N = text.length();
 
@@ -76,7 +77,7 @@ public class StringMatch {
 				text_index++;
 			}
 			if (pat_index == M) {
-				System.out.println("Found pattern " + "at index: " + (text_index - pat_index));
+				//System.out.println("Found pattern " + "at index: " + (text_index - pat_index));
 				pat_index = lp[pat_index - 1];
 				counter++;
 			}
@@ -92,9 +93,9 @@ public class StringMatch {
 			}
 		}
 		if (counter == 0) {
-			System.out.println("No match found!");
+			//System.out.println("No match found!");
 		} else {
-			System.out.println(counter + " matches found!");
+			//System.out.println(counter + " matches found!");
 		}
 		return counter;
 	}
@@ -145,8 +146,8 @@ public class StringMatch {
 	}
 
 	public int Boyersearch(String toMatch) {
-		System.out.println("BoyerMoore: ");
-		char[] txt = readFile().toCharArray();
+		//System.out.println("BoyerMoore: ");
+		char[] txt = data.toCharArray();
 		char[] pat = toMatch.toCharArray();
 		int counter = 0;
 		int m = pat.length;
@@ -160,16 +161,16 @@ public class StringMatch {
 			while (j >= 0 && pat[j] == txt[s + j])
 				j--;
 			if (j < 0) {
-				System.out.println("Found pattern at index: " + s);
+				//System.out.println("Found pattern at index: " + s);
 				s += (s + m < n) ? m - badchar[txt[s + m]] : 1;
 				counter++;
 			} else
 				s += max(1, j - badchar[txt[s + j]]);
 		}
 		if (counter == 0) {
-			System.out.println("No match found!");
+			//System.out.println("No match found!");
 		} else {
-			System.out.println(counter + " matches found!");
+			//System.out.println(counter + " matches found!");
 		}
 		return counter;
 	}
