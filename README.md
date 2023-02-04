@@ -18,5 +18,5 @@ This Project is done for CSC311 course under the supervision of Computer science
 - Results Sheet [link](https://studentksuedu-my.sharepoint.com/:x:/g/personal/441105960_student_ksu_edu_sa/EQR0q-LE3IZNv5yY6sXgBZABk3_Q9Go0VS1LvqHgrZHmjQ?e=EasUaN)
 - Report [link](https://studentksuedu-my.sharepoint.com/:x:/g/personal/441105960_student_ksu_edu_sa/EQR0q-LE3IZNv5yY6sXgBZABk3_Q9Go0VS1LvqHgrZHmjQ?e=EasUaN)
 ## Team
-Abdelrahman Fatouh, ID: 441105960
-Abdulrahman Alateeq, ID: 442101474
+- Abdelrahman Fatouh, ID: 441105960
+- Abdulrahman Alateeq, ID: 442101474
