@@ -12,6 +12,6 @@
 - Output panal will show a breif description of the output of the run test
 
 ## Links
-. Demo Video [link](https://youtu.be/spFQ-JKhmXE)
-. Results Sheet [link](https://studentksuedu-my.sharepoint.com/:x:/g/personal/441105960_student_ksu_edu_sa/EQR0q-LE3IZNv5yY6sXgBZABk3_Q9Go0VS1LvqHgrZHmjQ?e=EasUaN)
-. Report [link](https://studentksuedu-my.sharepoint.com/:x:/g/personal/441105960_student_ksu_edu_sa/EQR0q-LE3IZNv5yY6sXgBZABk3_Q9Go0VS1LvqHgrZHmjQ?e=EasUaN)
+- Demo Video [link](https://youtu.be/spFQ-JKhmXE)
+- Results Sheet [link](https://studentksuedu-my.sharepoint.com/:x:/g/personal/441105960_student_ksu_edu_sa/EQR0q-LE3IZNv5yY6sXgBZABk3_Q9Go0VS1LvqHgrZHmjQ?e=EasUaN)
+- Report [link](https://studentksuedu-my.sharepoint.com/:x:/g/personal/441105960_student_ksu_edu_sa/EQR0q-LE3IZNv5yY6sXgBZABk3_Q9Go0VS1LvqHgrZHmjQ?e=EasUaN)
