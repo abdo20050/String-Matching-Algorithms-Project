@@ -8,7 +8,7 @@ public class StringMatch {
 	String data;
 	public StringMatch(String fName) {
 		this.fName = fName;
-		this.data = readFile();
+		this.data = readFile(); 
 	}
 
 	private String readFile() {
@@ -37,21 +37,21 @@ public class StringMatch {
 		int l2 = pat.length();
 		int i = 0, j = l2 - 1;
 
-		for (i = 0, j = l2 - 1; j < l1;) {
+		for (i = 0, j = l2 - 1; j < l1;) { // for loop from i = 0 until pattern length - 1 while the j is less than data length
 			
-			if (pat.equals(data.substring(i, j + 1))) {
+			if (pat.equals(data.substring(i, j + 1))) { // if the pattern found we will increase the counter by 1 
 				//System.out.println("Pattern found at index " + i);
 				counter++;
 			}
 			i++;
 			j++;
 		}
-		if (counter == 0) {
+		if (counter == 0) { //To print how many matches we found
 			//System.out.println("No match found!");
 		} else {
 			//System.out.println(counter + " matches found!");
 		}
-		return counter;
+		return counter; // return how many times we found a match 
 	}
 
 	public int KMPSearch(String pattern) {
@@ -61,22 +61,22 @@ public class StringMatch {
 		int M = pattern.length();
 		int N = text.length();
 
-		// create lps[] that will hold the longest
+		
 		// prefix suffix values for pattern
-		int lp[] = new int[M];
+		int lp[] = new int[M]; // create lps[] that will hold the longest
 		int pat_index = 0; // index for pat[]
 
-		// Preprocess the pattern (calculate lps[]
-		// array)
+		// Preprocess the pattern (calculate lps[] array)
+		
 		computeLPSArray(pattern, M, lp);
 
 		int text_index = 0; // index for txt[]
-		while ((N - text_index) >= (M - pat_index)) {
-			if (pattern.charAt(pat_index) == text.charAt(text_index)) {
+		while ((N - text_index) >= (M - pat_index)) { // while text length - index for txt[] >= pattern length - index for pat[]
+			if (pattern.charAt(pat_index) == text.charAt(text_index)) { //if the pattern found at pattern index and it's equal to text at the text index we will incraese both indexs
 				pat_index++;
 				text_index++;
 			}
-			if (pat_index == M) {
+			if (pat_index == M) { // if the pattern index equals the pattern length it means that we found a pattern at index (text index - pattern index) aslo we will increase the counter
 				//System.out.println("Found pattern " + "at index: " + (text_index - pat_index));
 				pat_index = lp[pat_index - 1];
 				counter++;
@@ -92,12 +92,12 @@ public class StringMatch {
 					text_index = text_index + 1;
 			}
 		}
-		if (counter == 0) {
+		if (counter == 0) { //To print how many matches we found
 			//System.out.println("No match found!");
 		} else {
 			//System.out.println(counter + " matches found!");
 		}
-		return counter;
+		return counter;  // return how many times we found a match
 	}
 
 	void computeLPSArray(String pat, int M, int lps[]) {
@@ -122,7 +122,7 @@ public class StringMatch {
 
 					// Also, note that we do not increment
 					// i here
-				} else {
+				} else { // if ( len == 0 )
 					lps[i] = len;
 					i++;
 
@@ -155,19 +155,24 @@ public class StringMatch {
 		int badchar[] = new int[NO_OF_CHARS];
 		// function calling
 		badCharHeuristic(pat, m, badchar);
-		int s = 0;
-		while (s <= (n - m)) {
-			int j = m - 1;
+		int s = 0; // s is shift of the pattern with respect to text
+		while (s <= (n - m)) { // there are n-m+1 potential alignments 
+			int j = m - 1; //Start with the end of the pattern aligned at index m-1 in the text
 			while (j >= 0 && pat[j] == txt[s + j])
-				j--;
+				
+				j--; // keep reducing index j of pattern while characters of pattern and text are matching at this shift s
+			
 			if (j < 0) {
 				//System.out.println("Found pattern at index: " + s);
-				s += (s + m < n) ? m - badchar[txt[s + m]] : 1;
+										//Shift the pattern so that the next character in text aligns with the last occurrence of it in pattern.
+				s += (s + m < n) ? m - badchar[txt[s + m]] : 1; //The condition s+m < n is necessary for the case when pattern occurs at the end of text
+				
 				counter++;
-			} else
-				s += max(1, j - badchar[txt[s + j]]);
+			} else //Shift the pattern so that the bad character in text aligns with the last occurrence of it in the pattern 
+				
+				s += max(1, j - badchar[txt[s + j]]); //The max function is used to make sure that we get a positive shift we may get a negative shift if the last occurrence of bad character in pattern is on the right side of the current character 
 		}
-		if (counter == 0) {
+		if (counter == 0) {            //To print how many matches we found 
 			//System.out.println("No match found!");
 		} else {
 			//System.out.println(counter + " matches found!");
