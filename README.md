@@ -3,4 +3,4 @@
 Run projGUI.java to run the project
 ```
 ## Documentation
-![screenShot]( screenShots/img1.png | width=100)
+![](master/screenShots/img1.png | width=100)
