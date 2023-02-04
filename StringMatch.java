@@ -28,18 +28,18 @@ public class StringMatch {
 		return dataOutput;
 	}
 
-	public int bruteForce(String txt) {
+	public int bruteForce(String pat) {
 		//System.out.println("Brute Force: ");
 		//String data = readFile();
-		txt = txt.toLowerCase();
+		pat = pat.toLowerCase();
 		int counter = 0;
 		int l1 = data.length();
-		int l2 = txt.length();
+		int l2 = pat.length();
 		int i = 0, j = l2 - 1;
 
 		for (i = 0, j = l2 - 1; j < l1;) {
-
-			if (txt.equals(data.substring(i, j + 1))) {
+			
+			if (pat.equals(data.substring(i, j + 1))) {
 				//System.out.println("Pattern found at index " + i);
 				counter++;
 			}
